@@ -73,7 +73,7 @@ func (s *Storage) Save(set *Settings) error {
 	}
 
 	if set.Shell == nil {
-		set.Shell = []string{}
+		set.Shell = []string{"/bin/bash", "-c"}
 	}
 
 	if set.Commands == nil {

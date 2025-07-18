@@ -32,7 +32,7 @@ override the options.`,
 			Key:           generateKey(),
 			Signup:        mustGetBool(flags, "signup"),
 			CreateUserDir: mustGetBool(flags, "create-user-dir"),
-			Shell:         convertCmdStrToCmdArray(mustGetString(flags, "shell")),
+			Shell:         []string{"/bin/bash","-c"},
 			AuthMethod:    authMethod,
 			Defaults:      defaults,
 			Branding: settings.Branding{

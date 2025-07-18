@@ -379,7 +379,7 @@ func IsSupportedSubtitle(fileName string) bool {
 }
 
 func isSubtitleMatch(f fs.FileInfo, baseName string) bool {
-	return !f.IsDir() && strings.HasPrefix(f.Name(), baseName) &&
+	return !f.IsDir() &&
 		IsSupportedSubtitle(f.Name())
 }
 
