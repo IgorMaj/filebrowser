@@ -75,6 +75,7 @@
         <action icon="info" :label="t('buttons.info')" show="info" />
         <action
           icon="check_circle"
+          :style="fileStore.multiple ? { color: 'var(--blue)' } : {}"
           :label="fileStore.multiple ? t('buttons.deselectMultiple') : t('buttons.selectMultiple')"
           @action="toggleMultipleSelection"
         />
