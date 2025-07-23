@@ -35,6 +35,9 @@ export const useFileStore = defineStore("file", {
     // no context as first argument, use `this` instead
     toggleMultiple() {
       this.multiple = !this.multiple;
+      if(!this.multiple){
+        this.selected = [];
+      }
     },
     updateRequest(value: Resource | null) {
       const selectedItems = this.selected.map((i) => this.req?.items[i]);

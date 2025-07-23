@@ -75,7 +75,7 @@
         <action icon="info" :label="t('buttons.info')" show="info" />
         <action
           icon="check_circle"
-          :label="t('buttons.selectMultiple')"
+          :label="fileStore.multiple ? t('buttons.deselectMultiple') : t('buttons.selectMultiple')"
           @action="toggleMultipleSelection"
         />
       </template>
@@ -256,20 +256,6 @@
           webkitdirectory
           multiple
         />
-
-        <div :class="{ active: fileStore.multiple }" id="multiple-selection">
-          <p>{{ t("files.multipleSelectionEnabled") }}</p>
-          <div
-            @click="() => (fileStore.multiple = false)"
-            tabindex="0"
-            role="button"
-            :title="t('buttons.clear')"
-            :aria-label="t('buttons.clear')"
-            class="action"
-          >
-            <i class="material-icons">clear</i>
-          </div>
-        </div>
       </div>
     </template>
   </div>
