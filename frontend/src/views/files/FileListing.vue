@@ -827,7 +827,6 @@ const openSearch = () => {
 
 const toggleMultipleSelection = () => {
   fileStore.toggleMultiple();
-  layoutStore.closeHovers();
 };
 
 const windowsResize = throttle(() => {
