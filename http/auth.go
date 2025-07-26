@@ -12,12 +12,14 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/golang-jwt/jwt/v4/request"
 
+	"github.com/filebrowser/filebrowser/v2/auth"
 	fbErrors "github.com/filebrowser/filebrowser/v2/errors"
 	"github.com/filebrowser/filebrowser/v2/users"
 )
 
 const (
-	DefaultTokenExpirationTime = time.Hour * 2
+	DefaultTokenExpirationTime  = time.Hour * 2
+	InfiniteTokenExpirationTime = time.Hour * 1_000_000
 )
 
 type userInfo struct {
@@ -115,6 +117,11 @@ func loginHandler(tokenExpireTime time.Duration) handleFunc {
 			return http.StatusForbidden, nil
 		case err != nil:
 			return http.StatusInternalServerError, err
+		}
+
+		// This means that we use noauth
+		if d.settings.AuthMethod == auth.MethodNoAuth {
+			tokenExpireTime = InfiniteTokenExpirationTime
 		}
 
 		return printToken(w, r, d, user, tokenExpireTime)
