@@ -33,7 +33,7 @@
               <td class="small">
                 <button
                   class="action"
-                  @click="deleteLink($event, link)"
+                  @click.stop="deleteLink($event, link)"
                   :aria-label="t('buttons.delete')"
                   :title="t('buttons.delete')"
                 >
@@ -45,7 +45,7 @@
                   class="action copy-clipboard"
                   :aria-label="t('buttons.copyToClipboard')"
                   :title="t('buttons.copyToClipboard')"
-                  @click="copyToClipboard(buildLink(link))"
+                  @click.prevent="copyToClipboard(buildLink(link))"
                 >
                   <i class="material-icons">content_paste</i>
                 </button>

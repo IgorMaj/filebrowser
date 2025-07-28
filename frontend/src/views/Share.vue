@@ -270,7 +270,7 @@
             >
               <p>{{ t("files.multipleSelectionEnabled") }}</p>
               <div
-                @click="() => (fileStore.multiple = false)"
+                @click.stop="() => (fileStore.multiple = false)"
                 tabindex="0"
                 role="button"
                 :data-title="t('buttons.clear')"

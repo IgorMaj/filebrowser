@@ -1,10 +1,9 @@
 <template>
-  <div v-show="active" @click="closeHovers" class="overlay"></div>
   <nav :class="{ active }">
     <template v-if="isLoggedIn">
       <button
         class="action"
-        @click="toRoot"
+        @click.stop="toRoot"
         :aria-label="$t('sidebar.myFiles')"
         :title="$t('sidebar.myFiles')"
       >
@@ -14,7 +13,7 @@
 
       <div v-if="user.perm.create">
         <button
-          @click="showHover('newDir')"
+          @click.stop="showHover('newDir')"
           class="action"
           :aria-label="$t('sidebar.newFolder')"
           :title="$t('sidebar.newFolder')"
@@ -24,7 +23,7 @@
         </button>
 
         <button
-          @click="showHover('newFile')"
+          @click.stop="showHover('newFile')"
           class="action"
           :aria-label="$t('sidebar.newFile')"
           :title="$t('sidebar.newFile')"
@@ -37,7 +36,7 @@
       <div>
         <button
           class="action"
-          @click="toSettings"
+          @click.prevent="toSettings"
           :aria-label="$t('sidebar.settings')"
           :title="$t('sidebar.settings')"
         >

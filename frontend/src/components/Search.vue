@@ -4,7 +4,7 @@
       <button
         v-if="active"
         class="action"
-        @click="close"
+        @click.stop="close"
         :aria-label="$t('buttons.close')"
         :title="$t('buttons.close')"
       >

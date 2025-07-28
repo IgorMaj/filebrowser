@@ -45,7 +45,7 @@
             <td class="small">
               <button
                 class="action"
-                @click="deleteLink($event, link)"
+                @click.stop="deleteLink($event, link)"
                 :aria-label="$t('buttons.delete')"
                 :title="$t('buttons.delete')"
               >

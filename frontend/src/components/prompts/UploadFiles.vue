@@ -19,7 +19,7 @@
         </div>
         <button
           class="action"
-          @click="abortAll"
+          @click.stop="abortAll"
           aria-label="Abort upload"
           title="Abort upload"
         >
@@ -27,7 +27,7 @@
         </button>
         <button
           class="action"
-          @click="toggle"
+          @click.stop="toggle"
           aria-label="Toggle file upload list"
           title="Toggle file upload list"
         >
