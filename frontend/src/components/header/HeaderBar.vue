@@ -29,7 +29,7 @@
     <div
       class="overlay"
       v-show="layoutStore.currentPromptName == 'more'"
-      @click="layoutStore.closeHovers"
+      @click="passThroughClick"
     />
   </header>
 </template>
@@ -54,6 +54,14 @@ const slots = useSlots();
 const { t } = useI18n();
 
 const ifActionsSlot = computed(() => (slots.actions ? true : false));
+const passThroughClick = (event: MouseEvent) => {
+      layoutStore.closeHovers();
+      
+      setTimeout(() => {
+        const underneathEl = document.elementFromPoint(event.clientX, event.clientY) as HTMLElement;
+        underneathEl?.click?.();
+      }, 50);
+};
 </script>
 
 <style></style>
