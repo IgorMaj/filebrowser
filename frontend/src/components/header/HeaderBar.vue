@@ -25,6 +25,12 @@
       :label="t('buttons.more')"
       @action="layoutStore.showHover('more')"
     />
+
+    <div
+      class="overlay"
+      v-show="layoutStore.currentPromptName == 'more'"
+      @click="layoutStore.closeHovers"
+    />
   </header>
 </template>
 

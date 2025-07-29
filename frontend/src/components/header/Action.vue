@@ -1,5 +1,5 @@
 <template>
-  <button @click.stop="action" :aria-label="label" :title="label" class="action">
+  <button @click="action" :aria-label="label" :title="label" class="action">
     <i class="material-icons">{{ icon }}</i>
     <span>{{ label }}</span>
     <span v-if="counter && counter > 0" class="counter">{{ counter }}</span>

@@ -10,7 +10,7 @@
 
     <div class="card-action full">
       <div
-        @click.stop="uploadFile"
+        @click="uploadFile"
         @keypress.enter="uploadFile"
         class="action"
         id="focus-prompt"
@@ -20,7 +20,7 @@
         <div class="title">{{ t("buttons.file") }}</div>
       </div>
       <div
-        @click.stop="uploadFolder"
+        @click="uploadFolder"
         @keypress.enter="uploadFolder"
         class="action"
         tabindex="2"
